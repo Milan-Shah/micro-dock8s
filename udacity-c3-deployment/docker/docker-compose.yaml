@@ -1,0 +1,29 @@
+version: "3"
+services:
+ reverseproxy:
+   image: mshah1992/reverseproxy
+   ports:
+     - 8080:8080
+   restart: always
+   depends_on:
+    - backend-user
+    - backend-feed   
+ backend-user:
+  image: mshah1992/udacity-restapi-user
+  volumes:
+   - $HOME/.aws:/root/.aws
+  env_file:
+   - .env
+ backend-feed:
+  image: mshah1992/udacity-restapi-feed
+  volumes:
+   - $HOME/.aws:/root/.aws
+  env_file:
+   - .env
+ frontend:
+  image: mshah1992/udacity-frontend:local
+  ports:
+   - "8100:80"
+  depends_on:
+   - backend-user
+   - backend-feed   
