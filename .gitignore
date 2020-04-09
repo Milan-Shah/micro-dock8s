@@ -1,3 +1,5 @@
+udacity-c3-deployment/k8s/env-secret.yaml
+udacity-c3-deployment/k8s/aws-secret.yaml
 udacity-c3-deployment/docker/.env
 udacity-c3-restapi-user/.env
 udacity-c3-restapi-feed/.env
